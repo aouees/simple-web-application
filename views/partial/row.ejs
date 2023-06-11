@@ -1,0 +1,42 @@
+<tr>
+    <td style="width: 60%;">
+        <div style="display: flex;   justify-content: space-between;">
+            <div>
+                <div>
+                    <img alt="your image" width="35px" height="35px" src="images/<%=s.img%>">
+                    <small>
+                        <%=s.user_s%>
+                    </small>
+                </div>
+            </div>
+            <div style="overflow-x: auto ; ">
+                <b>
+                    <%=s.content%>
+                </b>
+            </div>
+            <div>
+                <small>
+                    <%=s.publishDate%>
+                </small>
+            </div>
+        </div>
+    </td>
+    <td style="width: 15%;">
+        <%=s.topic%>
+    </td>
+    <%if(all==false){%>
+
+        <td style="width: 15%;">
+            <form action="/update" method="get">
+                <input hidden="true" type="text" name="id" value="<%=s.id%>">
+                <input style="width: 90%;" type="submit" value="Update">
+            </form>
+            <form action="/delete" method="get">
+                <input hidden="true" type="text" name="id" value="<%=s.id%>">
+                <input style="width: 90%;" type="submit" value="Delete">
+            </form>
+            
+            
+        </td>
+        <%}%>
+</tr>

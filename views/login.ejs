@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%-include("partial/header")%>
+        <link rel="stylesheet" href="./style.css">
+        <script>
+            
+            function toggleForm() {
+                var loginForm = document.getElementById("login-form");
+                var signupForm = document.getElementById("signup-form");
+                if (loginForm.style.display === "none") {
+                    loginForm.style.display = "block";
+                    signupForm.style.display = "none";
+                    document.getElementById('btn').innerText = "don't have account ? Signup now"
+                } else {
+                    loginForm.style.display = "none";
+                    signupForm.style.display = "block";
+                    document.getElementById('btn').innerText = 'you have account ? Login now'
+                }
+            }
+        </script>
+</head>
+
+<body>
+    <%-include("partial/nav")%>
+    <div style="display: flex;
+    align-items: center;
+    justify-content: center;  ">
+
+        <div class="card">
+            
+            <form style=" display : block" id="login-form" action="/login" method="post">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username"><br><br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password"><br>
+                <label style="color: red; font-size: small;" for="password">
+                    <%=msg%>
+                </label>
+                <br>
+                
+                <input style="width: 100%;" type="submit" value="Login">
+            </form>
+            <form style="display: none;" id="signup-form" action="/signup" method="post">
+                
+                <label for="new-username">Username:</label>
+                <input type="text" id="new-username" name="newusername"><br><br>
+                <label for="new-password">Password:</label>
+                <input type="password" id="new-password" name="newpassword"><br><br>
+                <label for="name">name:</label>
+                <input type="text" id="name" name="name"><br><br>
+                <label style="color: red; font-size: small;" for="password">
+                    <%=msgs%>
+                </label>
+                <input style="width:100%;" type="submit" value="Signup">
+            </form>
+            <button style="margin-left: 10px;" id="btn" onclick="toggleForm()">don't have account ? Signup now</button>
+        </div>
+    </div>
+    </body>
+    
+    </html>

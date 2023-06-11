@@ -1,0 +1,16 @@
+<div id="navbar"> 
+    <ul> 
+      <%if(username!=''){%>
+        <li><a href="/profile"><%=username%></a></li> 
+        <%}%>
+      <%if(username===''){%>
+        <li><a href="/login">Login</a></li> 
+        
+     <%}%>
+      <li><a href="/homepage">homepage</a></li> 
+      <li><a href="/mystatement">My Statement</a></li> 
+      <%if(username!=''){%>
+        <li><a href="/logout">logout</a></li> 
+        <%}%>
+    </ul> 
+  </div> 

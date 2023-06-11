@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include("partial/header")%>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <%-include("partial/nav")%>
+    <div style="display: flex;
+    align-items: center;
+    justify-content: center;  ">
+
+        <div class="card">
+            <form method="post" style="text-align: center;" action="/updateImg" enctype="multipart/form-data">
+                    <img style="border-radius: 50%; padding: 10px;" alt="your image" width="100px" height="100px" src="images/<%=imgName%>">
+                    <br><input type="file" name="myfile">
+                    <br><input type="submit" value="update image">
+            </form>
+            <form style="display: block;"  action="/updateUser" method="post">
+                
+                <label for="new-username">Username:</label>
+                <input value='<%=user%>' type="text" id="new-username" name="newusername"><br><br>
+                <label for="new-password">Password:</label>
+                <input value="<%=pass%>" type="text" id="new-password" name="newpassword"><br><br>
+                <label for="name">name:</label>
+                <input value="<%=username%>" type="text" id="name" name="name"><br><br>
+                <label style="color: red; font-size: small;" for="password">
+                    <%=msgs%>
+                </label>
+                <input style="width:100%;" type="submit" value="Update My Data">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
